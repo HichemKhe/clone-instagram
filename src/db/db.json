@@ -6,9 +6,289 @@
       "email": "test@example.com",
       "password": "$2a$10$rn0qAzN2Hc7YzGYnKf5Uve6FfPGqqIQKVT8K7wNZh8N5VzPGQdL4W",
       "createdAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "user_1765407447203_35l24dnns",
+      "username": "Hichem",
+      "email": "khederihichem@gmail.com",
+      "password": "$2a$10$ye3p9cAoSFwy03pGG6nu1uHAkeG1RE2SA3W5EgBa8iI5wPUXxeW5u",
+      "createdAt": "2025-12-10T22:57:27.203Z"
     }
   ],
-  "photos": [],
-  "likes": [],
-  "comments": []
+  "photos": [
+    {
+      "id": "photo_1",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "best hike ever 🏔️",
+      "author": "Alex",
+      "authorUsername": "alex_outdoor",
+      "authorImage": "https://i.pravatar.cc/40?img=1",
+      "likes": 245,
+      "comments": 18,
+      "createdAt": "2025-12-09T10:30:00Z"
+    },
+    {
+      "id": "photo_2",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",
+      "src_full": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      "description": "can't beat this sunset 🌅",
+      "author": "Sam",
+      "authorUsername": "sam.travels",
+      "authorImage": "https://i.pravatar.cc/40?img=2",
+      "likes": 1230,
+      "comments": 92,
+      "createdAt": "2025-12-08T18:45:00Z"
+    },
+    {
+      "id": "photo_3",
+      "src": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400",
+      "src_full": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+      "description": "Lost in the woods 🌲 feeling alive",
+      "author": "Jordan",
+      "authorUsername": "jordan_outdoors",
+      "authorImage": "https://i.pravatar.cc/40?img=3",
+      "likes": 567,
+      "comments": 45,
+      "createdAt": "2025-12-07T14:20:00Z"
+    },
+    {
+      "id": "photo_4",
+      "src": "https://images.unsplash.com/photo-1469022563149-aa64dbd37d53?w=400",
+      "src_full": "https://images.unsplash.com/photo-1469022563149-aa64dbd37d53",
+      "description": "finally got to see the northern lights!!",
+      "author": "Emma",
+      "authorUsername": "emma.sky",
+      "authorImage": "https://i.pravatar.cc/40?img=4",
+      "likes": 892,
+      "comments": 61,
+      "createdAt": "2025-12-06T23:15:00Z"
+    },
+    {
+      "id": "photo_5",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&crop=entropy&cs=tinysrgb",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "winter vibes ❄️✨",
+      "author": "Chris",
+      "authorUsername": "chris_winter",
+      "authorImage": "https://i.pravatar.cc/40?img=5",
+      "likes": 423,
+      "comments": 32,
+      "createdAt": "2025-12-05T09:50:00Z"
+    },
+    {
+      "id": "photo_6",
+      "src": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400",
+      "src_full": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+      "description": "jungle trekking with a view 🌴",
+      "author": "Mike",
+      "authorUsername": "mike_adventures",
+      "authorImage": "https://i.pravatar.cc/40?img=6",
+      "likes": 734,
+      "comments": 54,
+      "createdAt": "2025-12-04T16:30:00Z"
+    },
+    {
+      "id": "photo_7",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&brightness=0.8",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "Waiting for the fog to clear 🌫️",
+      "author": "Lisa",
+      "authorUsername": "lisa_hiking",
+      "authorImage": "https://i.pravatar.cc/40?img=7",
+      "likes": 589,
+      "comments": 41,
+      "createdAt": "2025-12-03T11:25:00Z"
+    },
+    {
+      "id": "photo_8",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&brightness=1.1",
+      "src_full": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      "description": "paradise found 🏝️ (finally lol)",
+      "author": "David",
+      "authorUsername": "david.beach",
+      "authorImage": "https://i.pravatar.cc/40?img=8",
+      "likes": 1567,
+      "comments": 127,
+      "createdAt": "2025-12-02T20:10:00Z"
+    },
+    {
+      "id": "photo_9",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&saturation=1.5",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "Those colors tho 😍",
+      "author": "Nina",
+      "authorUsername": "nina_photos",
+      "authorImage": "https://i.pravatar.cc/40?img=9",
+      "likes": 678,
+      "comments": 52,
+      "createdAt": "2025-12-01T13:45:00Z"
+    },
+    {
+      "id": "photo_10",
+      "src": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400&brightness=0.9",
+      "src_full": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+      "description": "autumn walks hit different 🍂",
+      "author": "Tom",
+      "authorUsername": "tom_nature",
+      "authorImage": "https://i.pravatar.cc/40?img=10",
+      "likes": 445,
+      "comments": 38,
+      "createdAt": "2025-11-30T17:20:00Z"
+    },
+    {
+      "id": "photo_11",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&crop=faces",
+      "src_full": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      "description": "just vibing with the ocean 🌊",
+      "author": "Rachel",
+      "authorUsername": "rachel.relax",
+      "authorImage": "https://i.pravatar.cc/40?img=11",
+      "likes": 912,
+      "comments": 68,
+      "createdAt": "2025-11-29T08:35:00Z"
+    },
+    {
+      "id": "photo_12",
+      "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400",
+      "src_full": "https://images.unsplash.com/photo-1505142468610-359e7d316be0",
+      "description": "rough seas today 🏄‍♂️ perfect conditions",
+      "author": "Jake",
+      "authorUsername": "jake_surf",
+      "authorImage": "https://i.pravatar.cc/40?img=12",
+      "likes": 1089,
+      "comments": 75,
+      "createdAt": "2025-11-28T19:00:00Z"
+    },
+    {
+      "id": "photo_13",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&contrast=1.2",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "reached the top!! 💪🎉",
+      "author": "Sarah",
+      "authorUsername": "sarah_summit",
+      "authorImage": "https://i.pravatar.cc/40?img=13",
+      "likes": 756,
+      "comments": 59,
+      "createdAt": "2025-11-27T12:15:00Z"
+    },
+    {
+      "id": "photo_14",
+      "src": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400",
+      "src_full": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800",
+      "description": "this waterfall tho 🤯 worth the trek",
+      "author": "Matt",
+      "authorUsername": "matt.explore",
+      "authorImage": "https://i.pravatar.cc/40?img=14",
+      "likes": 1203,
+      "comments": 89,
+      "createdAt": "2025-11-26T15:50:00Z"
+    },
+    {
+      "id": "photo_15",
+      "src": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400&saturation=0.8",
+      "src_full": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+      "description": "shh dont tell anyone about this spot 🤫",
+      "author": "Grace",
+      "authorUsername": "grace.secret",
+      "authorImage": "https://i.pravatar.cc/40?img=15",
+      "likes": 534,
+      "comments": 44,
+      "createdAt": "2025-11-25T10:30:00Z"
+    },
+    {
+      "id": "photo_16",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&hue=190",
+      "src_full": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      "description": "living my best life 🏖️✨",
+      "author": "Oscar",
+      "authorUsername": "oscar_island",
+      "authorImage": "https://i.pravatar.cc/40?img=16",
+      "likes": 1345,
+      "comments": 104,
+      "createdAt": "2025-11-24T21:40:00Z"
+    },
+    {
+      "id": "photo_17",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&blur=0.3",
+      "src_full": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "description": "layers for days 🏔️",
+      "author": "Leo",
+      "authorUsername": "leo_climbing",
+      "authorImage": "https://i.pravatar.cc/40?img=17",
+      "likes": 623,
+      "comments": 51,
+      "createdAt": "2025-11-23T14:05:00Z"
+    },
+    {
+      "id": "photo_18",
+      "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&brightness=0.95",
+      "src_full": "https://images.unsplash.com/photo-1505142468610-359e7d316be0",
+      "description": "angry ocean mood ⛈️",
+      "author": "Bella",
+      "authorUsername": "bella_storm",
+      "authorImage": "https://i.pravatar.cc/40?img=18",
+      "likes": 892,
+      "comments": 72,
+      "createdAt": "2025-11-22T11:25:00Z"
+    },
+    {
+      "id": "photo_19",
+      "src": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400&brightness=1.1",
+      "src_full": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+      "description": "golden hour in the forest 🌞",
+      "author": "Ryan",
+      "authorUsername": "ryan_gold",
+      "authorImage": "https://i.pravatar.cc/40?img=19",
+      "likes": 701,
+      "comments": 58,
+      "createdAt": "2025-11-21T09:15:00Z"
+    },
+    {
+      "id": "photo_20",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&saturation=1.2",
+      "src_full": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      "description": "missing this rn 😭🌴",
+      "author": "Ivy",
+      "authorUsername": "ivy_beach",
+      "authorImage": "https://i.pravatar.cc/40?img=20",
+      "likes": 1478,
+      "comments": 112,
+      "createdAt": "2025-11-20T16:45:00Z"
+    }
+  ],
+  "likes": [
+    {
+      "id": "like_1765409026469_3stpn8tm0",
+      "photoId": "photo_1",
+      "userId": "user_1765407447203_35l24dnns",
+      "createdAt": "2025-12-10T23:23:46.469Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "comment_1765407961378_1mtuv9q53",
+      "photoId": "photo_14",
+      "userId": "user_1765407447203_35l24dnns",
+      "username": "Hichem",
+      "text": "Wow",
+      "createdAt": "2025-12-10T23:06:01.378Z"
+    },
+    {
+      "id": "comment_1765408615847_yws2mtkel",
+      "photoId": "Yfv7JszxYyw",
+      "userId": "user_1765407447203_35l24dnns",
+      "username": "Hichem",
+      "text": "Beautiful",
+      "createdAt": "2025-12-10T23:16:55.847Z"
+    },
+    {
+      "id": "comment_1765409032319_h2h9igeka",
+      "photoId": "photo_1",
+      "userId": "user_1765407447203_35l24dnns",
+      "username": "Hichem",
+      "text": "Salut",
+      "createdAt": "2025-12-10T23:23:52.319Z"
+    }
+  ]
 }

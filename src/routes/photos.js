@@ -10,9 +10,42 @@ const UNSPLASH_BASE_URL = 'https://api.unsplash.com';
 // Récupérer les photos avec recherche
 router.get('/', async (req, res) => {
   try {
-    const query = req.query.q || 'nature';
+    const query = (req.query.q || '').trim();
     const page = req.query.page || 1;
+    const db = readDB();
 
+    // Si pas de clé API ou clé par défaut, utiliser les photos locales
+    if (!UNSPLASH_API_KEY || UNSPLASH_API_KEY === 'your_unsplash_api_key_here') {
+      console.log('Utilisation des photos locales (pas de clé API Unsplash)');
+      console.log('Query:', query);
+      
+      let filteredPhotos = db.photos;
+
+      // Filtrer les photos locales par requête (si query non vide)
+      if (query) {
+        filteredPhotos = db.photos.filter(photo => 
+          photo.description.toLowerCase().includes(query.toLowerCase()) ||
+          photo.author.toLowerCase().includes(query.toLowerCase())
+        );
+      }
+
+      console.log('Photos trouvées:', filteredPhotos.length);
+
+      // Ajouter les likes et commentaires
+      const photosWithMetadata = filteredPhotos.map(photo => {
+        const likes = db.likes.filter(l => l.photoId === photo.id);
+        const comments = db.comments.filter(c => c.photoId === photo.id);
+        return {
+          ...photo,
+          likes: likes.length,
+          comments: comments.length
+        };
+      });
+
+      return res.json({ photos: photosWithMetadata, total: photosWithMetadata.length });
+    }
+
+    // Sinon, utiliser l'API Unsplash
     const response = await axios.get(`${UNSPLASH_BASE_URL}/search/photos`, {
       params: {
         query,
@@ -22,7 +55,6 @@ router.get('/', async (req, res) => {
       }
     });
 
-    const db = readDB();
     const photosWithMetadata = response.data.results.map(photo => {
       // Trouver les likes et commentaires locaux
       const likes = db.likes.filter(l => l.photoId === photo.id);
@@ -44,7 +76,27 @@ router.get('/', async (req, res) => {
     res.json({ photos: photosWithMetadata, total: response.data.total });
   } catch (error) {
     console.error('Erreur API Unsplash:', error.message);
-    res.status(500).json({ error: 'Erreur lors de la récupération des photos' });
+    console.log('Fallback sur photos locales...');
+    
+    // En cas d'erreur, retourner les photos locales
+    const db = readDB();
+    const query = req.query.q || '';
+    
+    const filteredPhotos = db.photos.filter(photo => 
+      !query || photo.description.toLowerCase().includes(query.toLowerCase())
+    );
+
+    const photosWithMetadata = filteredPhotos.map(photo => {
+      const likes = db.likes.filter(l => l.photoId === photo.id);
+      const comments = db.comments.filter(c => c.photoId === photo.id);
+      return {
+        ...photo,
+        likes: likes.length,
+        comments: comments.length
+      };
+    });
+
+    res.json({ photos: photosWithMetadata, total: photosWithMetadata.length });
   }
 });
 

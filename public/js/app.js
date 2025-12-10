@@ -46,8 +46,8 @@ function toggleAuthForm() {
 
 document.getElementById('login').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const email = e.target[0].value;
-  const password = e.target[1].value;
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
 
   try {
     const data = await apiCall('/auth/login', {
@@ -66,9 +66,9 @@ document.getElementById('login').addEventListener('submit', async (e) => {
 
 document.getElementById('signup').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const username = e.target[0].value;
-  const email = e.target[1].value;
-  const password = e.target[2].value;
+  const username = document.getElementById('signup-username').value;
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
 
   try {
     const data = await apiCall('/auth/signup', {
@@ -108,7 +108,7 @@ function showFeed() {
 }
 
 // ============= PHOTOS / RECHERCHE =============
-async function loadPhotos(query = 'nature') {
+async function loadPhotos(query = '') {
   try {
     const grid = document.getElementById('photos-grid');
     grid.innerHTML = '<div class="loading"><div class="spinner"></div>Chargement...</div>';
@@ -117,6 +117,11 @@ async function loadPhotos(query = 'nature') {
     currentPhotos = data.photos;
 
     grid.innerHTML = '';
+    if (currentPhotos.length === 0) {
+      grid.innerHTML = '<div class="error-message">Aucune photo trouvée</div>';
+      return;
+    }
+
     currentPhotos.forEach(photo => {
       const card = createPhotoCard(photo);
       grid.appendChild(card);
