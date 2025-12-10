@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Clone</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Page d'authentification -->
+    <div id="auth-page" class="page active">
+      <div class="auth-container">
+        <div class="auth-box">
+          <h1>📸 Instagram Clone</h1>
+          
+          <!-- Formulaire de connexion -->
+          <div id="login-form" class="form-section active">
+            <h2>Connexion</h2>
+            <form id="login">
+              <input type="email" placeholder="Email" required>
+              <input type="password" placeholder="Mot de passe" required>
+              <button type="submit">Se connecter</button>
+            </form>
+            <p>Pas encore inscrit ? <a href="#" onclick="toggleAuthForm()">S'inscrire</a></p>
+          </div>
+
+          <!-- Formulaire d'inscription -->
+          <div id="signup-form" class="form-section">
+            <h2>Inscription</h2>
+            <form id="signup">
+              <input type="text" placeholder="Nom d'utilisateur" required>
+              <input type="email" placeholder="Email" required>
+              <input type="password" placeholder="Mot de passe" required>
+              <button type="submit">S'inscrire</button>
+            </form>
+            <p>Déjà inscrit ? <a href="#" onclick="toggleAuthForm()">Se connecter</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page principale (flux d'images) -->
+    <div id="feed-page" class="page">
+      <nav class="navbar">
+        <div class="navbar-left">
+          <h1>📸 Instagram Clone</h1>
+        </div>
+        <div class="navbar-center">
+          <form id="search-form" class="search-form">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Rechercher des images..."
+              value="nature"
+            >
+            <button type="submit">Rechercher</button>
+          </form>
+        </div>
+        <div class="navbar-right">
+          <span id="username-display">Utilisateur</span>
+          <button id="logout-btn" class="logout-btn">Déconnexion</button>
+        </div>
+      </nav>
+
+      <main class="feed-container">
+        <div class="photos-grid" id="photos-grid">
+          <!-- Les photos vont être insérées ici -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal pour voir les détails de la photo -->
+  <div id="photo-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="">
+        </div>
+        <div class="modal-info">
+          <div class="modal-header">
+            <div class="photo-author">
+              <img id="modal-author-image" src="" alt="">
+              <div>
+                <p class="author-name" id="modal-author-name"></p>
+                <p class="author-username" id="modal-author-username"></p>
+              </div>
+            </div>
+          </div>
+
+          <p id="modal-description" class="photo-description"></p>
+
+          <div class="modal-stats">
+            <div class="stat">
+              <span id="modal-likes-count">0</span> J'aime
+            </div>
+            <div class="stat">
+              <span id="modal-comments-count">0</span> Commentaires
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button id="modal-like-btn" class="action-btn like-btn">
+              ❤️ Liker
+            </button>
+          </div>
+
+          <div class="comments-section">
+            <h3>Commentaires</h3>
+            <div id="comments-list" class="comments-list">
+              <!-- Les commentaires vont être insérés ici -->
+            </div>
+
+            <form id="comment-form" class="comment-form">
+              <textarea 
+                placeholder="Ajouter un commentaire..." 
+                rows="2"
+                required
+              ></textarea>
+              <button type="submit">Commenter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

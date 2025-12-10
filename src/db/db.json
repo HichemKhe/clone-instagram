@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "user_1",
+      "username": "test",
+      "email": "test@example.com",
+      "password": "$2a$10$rn0qAzN2Hc7YzGYnKf5Uve6FfPGqqIQKVT8K7wNZh8N5VzPGQdL4W",
+      "createdAt": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "photos": [],
+  "likes": [],
+  "comments": []
+}
