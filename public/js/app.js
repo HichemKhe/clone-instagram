@@ -4,7 +4,8 @@ let currentPhotos = [];
 let currentPhotoId = null;
 
 // ============= API CALLS =============
-const API_BASE = 'http://localhost:5000/api';
+// Use relative base so it works both locally and in production (Render)
+const API_BASE = `${window.location.origin}/api`;
 
 async function apiCall(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;
