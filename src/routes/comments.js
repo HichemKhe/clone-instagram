@@ -3,7 +3,7 @@ const { readDB, writeDB, generateId } = require('../db/database');
 const { verifyToken } = require('../middleware/auth');
 const router = express.Router();
 
-// Ajouter un commentaire
+// Ajout d'un commentaire
 router.post('/', verifyToken, (req, res) => {
   try {
     const { photoId, text } = req.body;
@@ -33,7 +33,7 @@ router.post('/', verifyToken, (req, res) => {
   }
 });
 
-// Récupérer les commentaires d'une photo
+// Liste des commentaires pour une photo
 router.get('/:photoId', (req, res) => {
   try {
     const { photoId } = req.params;
@@ -46,7 +46,7 @@ router.get('/:photoId', (req, res) => {
   }
 });
 
-// Supprimer un commentaire
+// Suppression d'un commentaire (proprio uniquement)
 router.delete('/:commentId', verifyToken, (req, res) => {
   try {
     const { commentId } = req.params;

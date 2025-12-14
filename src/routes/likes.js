@@ -3,7 +3,7 @@ const { readDB, writeDB, generateId } = require('../db/database');
 const { verifyToken } = require('../middleware/auth');
 const router = express.Router();
 
-// Liker une photo
+// Création d'un like
 router.post('/', verifyToken, (req, res) => {
   try {
     const { photoId } = req.body;
@@ -14,14 +14,14 @@ router.post('/', verifyToken, (req, res) => {
 
     const db = readDB();
 
-    // Vérifier si le like existe déjà
+    // Je bloque le doublon si déjà liké par cet utilisateur
     const existingLike = db.likes.find(l => l.photoId === photoId && l.userId === req.user.id);
     
     if (existingLike) {
       return res.status(409).json({ error: 'Vous avez déjà liké cette photo' });
     }
 
-    // Ajouter le like
+    // Si tout est ok, j'enregistre le like
     const newLike = {
       id: generateId('like'),
       photoId,
@@ -38,13 +38,13 @@ router.post('/', verifyToken, (req, res) => {
   }
 });
 
-// Déliker une photo
+// Suppression d'un like
 router.delete('/:photoId', verifyToken, (req, res) => {
   try {
     const { photoId } = req.params;
     const db = readDB();
 
-    // Trouver et supprimer le like
+    // Je cherche le like à supprimer pour cet utilisateur
     const likeIndex = db.likes.findIndex(l => l.photoId === photoId && l.userId === req.user.id);
 
     if (likeIndex === -1) {
@@ -60,7 +60,7 @@ router.delete('/:photoId', verifyToken, (req, res) => {
   }
 });
 
-// Récupérer les likes d'une photo
+// Nombre de likes d'une photo
 router.get('/:photoId', (req, res) => {
   try {
     const { photoId } = req.params;

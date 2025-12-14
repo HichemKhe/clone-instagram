@@ -1,10 +1,9 @@
-// ============= STATE MANAGEMENT =============
+// Mes variables d'état pour suivre l'appli
 let currentUser = null;
 let currentPhotos = [];
 let currentPhotoId = null;
 
-// ============= API CALLS =============
-// Use relative base so it works both locally and in production (Render)
+// Appels API centralisés (base relative pour local + Render)
 const API_BASE = `${window.location.origin}/api`;
 
 async function apiCall(endpoint, options = {}) {
@@ -37,7 +36,7 @@ async function apiCall(endpoint, options = {}) {
   }
 }
 
-// ============= AUTHENTIFICATION =============
+// Authentification basique (login/signup + toggle)
 function toggleAuthForm() {
   const loginForm = document.getElementById('login-form');
   const signupForm = document.getElementById('signup-form');
@@ -96,7 +95,7 @@ function logout() {
 
 document.getElementById('logout-btn').addEventListener('click', logout);
 
-// ============= NAVIGATION =============
+// Petits helpers de navigation entre auth et feed
 function showAuthPage() {
   document.getElementById('auth-page').classList.add('active');
   document.getElementById('feed-page').classList.remove('active');
@@ -108,7 +107,7 @@ function showFeed() {
   document.getElementById('username-display').textContent = currentUser.username;
 }
 
-// ============= PHOTOS / RECHERCHE =============
+// Chargement des photos + recherche
 async function loadPhotos(query = '') {
   try {
     const grid = document.getElementById('photos-grid');
@@ -157,28 +156,28 @@ document.getElementById('search-form').addEventListener('submit', (e) => {
   }
 });
 
-// ============= MODAL =============
+// Gestion de la modale (affichage d'une photo)
 const modal = document.getElementById('photo-modal');
 const closeBtn = document.querySelector('.close');
 
 function openModal(photo) {
   currentPhotoId = photo.id;
 
-  // Images et infos
+  // Images et infos dans la modale
   document.getElementById('modal-image').src = photo.src_full;
   document.getElementById('modal-description').textContent = photo.description;
   document.getElementById('modal-author-name').textContent = photo.author;
   document.getElementById('modal-author-username').textContent = `@${photo.authorUsername}`;
   document.getElementById('modal-author-image').src = photo.authorImage;
 
-  // Stats
+  // Stats visibles dans la modale
   document.getElementById('modal-likes-count').textContent = photo.likes;
   document.getElementById('modal-comments-count').textContent = photo.comments;
 
-  // Charger les commentaires
+  // Récupération des commentaires pour cette photo
   loadComments(photo.id);
 
-  // Vérifier si l'utilisateur a liké
+  // Je vérifie si l'utilisateur a déjà liké
   checkIfLiked(photo.id);
 
   modal.classList.add('show');
@@ -194,14 +193,13 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// ============= LIKES =============
+// Gestion des likes dans la modale
 async function checkIfLiked(photoId) {
   try {
     const data = await apiCall(`/likes/${photoId}`);
     const likeBtn = document.getElementById('modal-like-btn');
 
-    // TODO: Vérifier si l'utilisateur actuel a liké (nécessite une modification du backend)
-    // Pour maintenant, on just affiche le count
+    // Ici je ne sais pas encore l'utilisateur qui a liké, je récupère juste le total
     document.getElementById('modal-likes-count').textContent = data.likes;
   } catch (error) {
     console.error('Erreur vérif like:', error);
@@ -215,12 +213,12 @@ document.getElementById('modal-like-btn').addEventListener('click', async () => 
 
   try {
     if (likeBtn.classList.contains('liked')) {
-      // Unliker
+      // Enlever mon like
       await apiCall(`/likes/${currentPhotoId}`, { method: 'DELETE' });
       likeBtn.classList.remove('liked');
       likeBtn.textContent = '❤️ Liker';
     } else {
-      // Liker
+      // Poser un like
       await apiCall('/likes', {
         method: 'POST',
         body: JSON.stringify({ photoId: currentPhotoId })
@@ -229,14 +227,14 @@ document.getElementById('modal-like-btn').addEventListener('click', async () => 
       likeBtn.textContent = '❤️ Liké';
     }
 
-    // Actualiser le count
+    // Rafraîchir le total après action
     checkIfLiked(currentPhotoId);
   } catch (error) {
     alert('Erreur: ' + error.message);
   }
 });
 
-// ============= COMMENTAIRES =============
+// Commentaires associés à la photo
 async function loadComments(photoId) {
   try {
     const data = await apiCall(`/comments/${photoId}`);
@@ -302,7 +300,7 @@ async function deleteComment(commentId) {
   }
 }
 
-// ============= UTILITAIRES =============
+// Helpers variés
 function formatDate(dateString) {
   const date = new Date(dateString);
   const now = new Date();
@@ -316,7 +314,7 @@ function formatDate(dateString) {
   return date.toLocaleDateString('fr-FR');
 }
 
-// ============= INIT =============
+// Point d'entrée de l'app
 async function init() {
   const token = localStorage.getItem('token');
 
